@@ -1,6 +1,7 @@
 import 'package:bookly/core/utils/assets.dart';
+import 'package:bookly/core/utils/styles.dart';
+import 'package:bookly/features/home/presentation/views/widgets/book_rating.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class BestSellerListViewItem extends StatelessWidget {
   const BestSellerListViewItem({super.key});
@@ -24,53 +25,44 @@ class BestSellerListViewItem extends StatelessWidget {
               ),
             ),
           ),
-          const Column(
-            children: [
-              // ListTile(
-              //   title: Text('Harry Potter'),
-              //   subtitle: Text('J.K. Rowing'),
-              // ),
-              Text(
-                'Harry Potter',
-                style: TextStyle(
-                  fontFamily: Assets.assetsFontsGTSectraFineRegular,
-                  fontSize: 20,
-                ),
-              ),
-              Text(
-                'J.K. Rowing',
-                style: TextStyle(
-                  fontSize: 14,
-                ),
-              ),
-              Row(
-                children: [
-                  Text(
-                    '19.99 €',
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
+          const SizedBox(width: 30),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(
+                  width: MediaQuery.of(context).size.width * .5,
+                  child: Text(
+                    'Harry Potter and the Goblet of Fire',
+                    style: Styles.textStyle20.copyWith(
+                      fontFamily: Assets.assetsFontsGTSectraFineRegular,
                     ),
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
                   ),
-                  Row(
-                    children: [
-                      FaIcon(
-                        FontAwesomeIcons.solidStar,
-                        color: Colors.amber,
+                ),
+                const SizedBox(height: 3),
+                Text(
+                  'J.K. Rowing',
+                  style: Styles.textStyle14.copyWith(
+                    color: Styles.textColor,
+                  ),
+                ),
+                const SizedBox(height: 3),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      '19.99 €',
+                      style: Styles.textStyle20.copyWith(
+                        fontWeight: FontWeight.bold,
                       ),
-                      Text(
-                        '4.8',
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      Text('(2390)'),
-                    ],
-                  )
-                ],
-              ),
-            ],
+                    ),
+                    const BookRating(),
+                  ],
+                ),
+              ],
+            ),
           )
         ],
       ),
