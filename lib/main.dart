@@ -1,4 +1,4 @@
-import 'package:bookly/core/utils/constants.dart';
+import 'package:bookly/core/utils/styles.dart';
 import 'package:bookly/features/splash/presentation/views/splash_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -17,8 +17,8 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark().copyWith(
-        colorScheme: ColorScheme.fromSeed(seedColor: Constants.primaryColor),
-        scaffoldBackgroundColor: Constants.primaryColor,
+        colorScheme: ColorScheme.fromSeed(seedColor: Styles.primaryColor),
+        scaffoldBackgroundColor: Styles.primaryColor,
         // fontFamily: 'GT Sectra Fine',
       ),
       home: const SplashView(),
