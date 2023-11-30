@@ -16,11 +16,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: Constants.primaryColor,
-          brightness: Brightness.dark,
-        ),
+      theme: ThemeData.dark().copyWith(
+        colorScheme: ColorScheme.fromSeed(seedColor: Constants.primaryColor),
         scaffoldBackgroundColor: Constants.primaryColor,
         // fontFamily: 'GT Sectra Fine',
       ),
