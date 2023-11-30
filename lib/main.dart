@@ -2,6 +2,7 @@ import 'package:bookly/core/utils/styles.dart';
 import 'package:bookly/features/splash/presentation/views/splash_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData.dark().copyWith(
         colorScheme: ColorScheme.fromSeed(seedColor: Styles.primaryColor),
         scaffoldBackgroundColor: Styles.primaryColor,
-        // fontFamily: 'GT Sectra Fine',
+        textTheme: GoogleFonts.montserratTextTheme(ThemeData.dark().textTheme),
       ),
       home: const SplashView(),
     );
