@@ -1,10 +1,9 @@
 class Assets {
   Assets._();
-
-  /// Assets for assetsFontsGT Sectra Fine Regular
-  /// assets/fonts/GT Sectra Fine Regular.ttf
-  static const String assetsFontsGTSectraFineRegular =
-      "assets/fonts/GT Sectra Fine Regular.ttf";
+  
+  /// Assets for assetsFontsGTSectraFineRegular
+  /// assets/fonts/GT-Sectra-Fine-Regular.ttf
+  static const String assetsFontsGTSectraFineRegular = "assets/fonts/GT-Sectra-Fine-Regular.ttf";
 
   /// Assets for assetsImagesLogo
   /// assets/images/Logo.png
