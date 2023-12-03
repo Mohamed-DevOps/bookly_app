@@ -4,7 +4,7 @@ class ApiService {
   final _baseUrl = "https://www.googleapis.com/books/v1";
   final Dio _dio;
 
-  ApiService({
+  const ApiService({
     required Dio dio,
   }) : _dio = dio;
 

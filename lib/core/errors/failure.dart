@@ -3,7 +3,7 @@ import 'package:dio/dio.dart';
 abstract class Failure {
   final String errMessage;
 
-  Failure({required this.errMessage});
+  const Failure({required this.errMessage});
 }
 
 class ServerFailure extends Failure {
@@ -37,6 +37,7 @@ class ServerFailure extends Failure {
 
       case DioExceptionType.unknown:
         return ServerFailure(errMessage: 'Unknown error, Please try again!');
+
       default:
         return ServerFailure(
             errMessage: 'Oops! there was an error, Please try again.');
