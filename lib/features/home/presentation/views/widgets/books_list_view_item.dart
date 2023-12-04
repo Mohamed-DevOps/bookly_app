@@ -3,13 +3,14 @@ import 'package:bookly/core/utils/assets.dart';
 import 'package:bookly/core/utils/styles.dart';
 import 'package:bookly/features/home/data/models/book_model/book_model.dart';
 import 'package:bookly/features/home/presentation/views/widgets/book_rating.dart';
+import 'package:bookly/features/home/presentation/views/widgets/custom_book_image.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 class BooksListViewItem extends StatelessWidget {
-  const BooksListViewItem({super.key});
+  const BooksListViewItem({super.key, required this.bookModel});
 
-  // final BookModel book;
+  final BookModel bookModel;
 
   @override
   Widget build(BuildContext context) {
@@ -21,18 +22,8 @@ class BooksListViewItem extends StatelessWidget {
         height: 125,
         child: Row(
           children: [
-            AspectRatio(
-              aspectRatio: 2.5 / 4,
-              child: Container(
-                decoration: BoxDecoration(
-                  color: Colors.red,
-                  image: const DecorationImage(
-                    image: AssetImage(Assets.assetsImagesTestImage),
-                    fit: BoxFit.fill,
-                  ),
-                  borderRadius: BorderRadius.circular(8),
-                ),
-              ),
+            CustomBookImage(
+              imageUrl: bookModel.volumeInfo!.imageLinks!.thumbnail!,
             ),
             const SizedBox(width: 30),
             Expanded(
@@ -42,7 +33,7 @@ class BooksListViewItem extends StatelessWidget {
                   SizedBox(
                     width: MediaQuery.of(context).size.width * .5,
                     child: Text(
-                      'Harry Potter and the Goblet of Fire',
+                      bookModel.volumeInfo!.title!,
                       style: Styles.textStyle20.copyWith(
                         fontFamily: Assets.assetsFontsGTSectraFineRegular,
                       ),
@@ -51,10 +42,10 @@ class BooksListViewItem extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 3),
-                  const Opacity(
+                  Opacity(
                     opacity: .7,
                     child: Text(
-                      'J.K. Rowing',
+                      bookModel.volumeInfo!.authors!.first,
                       style: Styles.textStyle14,
                     ),
                   ),
@@ -63,17 +54,20 @@ class BooksListViewItem extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        '19.99€',
-                        style: Styles.textStyle20.copyWith(
+                        'Free',
+                        style: Styles.textStyle18.copyWith(
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      const BookRating(),
+                      BookRating(
+                        rating: bookModel.volumeInfo?.averageRating ?? 0,
+                        count: bookModel.volumeInfo?.ratingsCount ?? 0,
+                      ),
                     ],
                   ),
                 ],
               ),
-            )
+            ),
           ],
         ),
       ),
