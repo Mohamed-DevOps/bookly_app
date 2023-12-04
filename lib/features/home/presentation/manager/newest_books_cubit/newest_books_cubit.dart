@@ -15,10 +15,13 @@ class NewestBooksCubit extends Cubit<NewestBooksState> {
 
     final result = await homeRepo.fetchNewestBooks();
 
-    result.fold((failure) {
-      emit(NewestBooksFailureState(errMessage: failure.errMessage));
-    }, (books) {
-      emit(NewestBooksSuccessState(books: books));
-    });
+    result.fold(
+      (failure) {
+        emit(NewestBooksFailureState(errMessage: failure.errMessage));
+      },
+      (books) {
+        emit(NewestBooksSuccessState(books: books));
+      },
+    );
   }
 }
