@@ -1,5 +1,5 @@
-import 'package:bookly/core/utils/assets.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 abstract class Styles {
   // Color Styles//
@@ -26,8 +26,12 @@ abstract class Styles {
     fontSize: 20,
   );
 
-  static const textStyle30 = TextStyle(
+  static final textStyle30 = GoogleFonts.merriweather(
     fontSize: 30,
-    fontFamily: Assets.assetsFontsGTSectraFineRegular,
   );
+
+  // static const textStyle30 = TextStyle(
+  //   fontSize: 30,
+  //   fontFamily: Assets.assetsFontsGTSectraFineRegular,
+  // );
 }

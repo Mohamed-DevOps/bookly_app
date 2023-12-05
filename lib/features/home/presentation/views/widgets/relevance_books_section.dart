@@ -1,9 +1,9 @@
 import 'package:bookly/core/utils/styles.dart';
-import 'package:bookly/features/home/presentation/views/widgets/similar_books_list_view.dart';
+import 'package:bookly/features/home/presentation/views/widgets/relevance_books_list_view.dart';
 import 'package:flutter/material.dart';
 
-class SimilarBooksSection extends StatelessWidget {
-  const SimilarBooksSection({super.key});
+class RelevanceBooksSection extends StatelessWidget {
+  const RelevanceBooksSection({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +17,8 @@ class SimilarBooksSection extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 16),
-        const SimilarBooksListView(),
+        const RelevanceBooksListView(),
+        // const SizedBox(height: 16),
       ],
     );
   }

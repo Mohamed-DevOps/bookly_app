@@ -1,5 +1,4 @@
 import 'package:bookly/core/utils/app_router.dart';
-import 'package:bookly/core/utils/assets.dart';
 import 'package:bookly/core/utils/styles.dart';
 import 'package:bookly/features/home/data/models/book_model/book_model.dart';
 import 'package:bookly/features/home/presentation/views/widgets/book_rating.dart';
@@ -34,8 +33,8 @@ class BooksListViewItem extends StatelessWidget {
                     width: MediaQuery.of(context).size.width * .5,
                     child: Text(
                       bookModel.volumeInfo!.title!,
-                      style: Styles.textStyle20.copyWith(
-                        fontFamily: Assets.assetsFontsGTSectraFineRegular,
+                      style: Styles.textStyle30.copyWith(
+                        fontSize: 20,
                       ),
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,

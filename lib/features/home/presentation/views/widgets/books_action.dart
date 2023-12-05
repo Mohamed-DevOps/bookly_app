@@ -1,20 +1,25 @@
+import 'package:bookly/core/utils/functions/launch_url.dart';
 import 'package:bookly/core/widgets/custom_button.dart';
+import 'package:bookly/features/home/data/models/book_model/book_model.dart';
 import 'package:flutter/material.dart';
 
 class BooksAction extends StatelessWidget {
-  const BooksAction({super.key});
+  const BooksAction({super.key, required this.bookModel});
+
+  final BookModel bookModel;
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.symmetric(horizontal: 8),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 8),
       child: Row(
         children: [
-          Expanded(
+          const Expanded(
             child: CustomButton(
               backgroundColor: Colors.white,
               textColor: Colors.black,
-              label: '19.99€',
+              // label: '19.99€',
+              label: 'Free',
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(12),
                 bottomLeft: Radius.circular(12),
@@ -23,11 +28,14 @@ class BooksAction extends StatelessWidget {
           ),
           Expanded(
             child: CustomButton(
-              backgroundColor: Color(0xffef8262),
+              onPressed: () {
+                launchCustomUrl(context, bookModel.volumeInfo!.previewLink);
+              },
+              backgroundColor: const Color(0xffef8262),
               textColor: Colors.white,
-              label: 'Free preview',
+              label: getText(bookModel),
               fontSize: 16,
-              borderRadius: BorderRadius.only(
+              borderRadius: const BorderRadius.only(
                 topRight: Radius.circular(12),
                 bottomRight: Radius.circular(12),
               ),
@@ -36,5 +44,13 @@ class BooksAction extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  String getText(BookModel bookModel) {
+    if (bookModel.volumeInfo!.previewLink == null) {
+      return 'Not Available';
+    } else {
+      return 'Free preview';
+    }
   }
 }

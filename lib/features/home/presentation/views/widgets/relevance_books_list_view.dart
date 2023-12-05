@@ -1,4 +1,3 @@
-import 'package:bookly/core/utils/assets.dart';
 import 'package:bookly/core/widgets/custom_error_widget.dart';
 import 'package:bookly/core/widgets/custom_loading_indicator.dart';
 import 'package:bookly/features/home/presentation/manager/relevance_books_cubit/relevance_books_cubit.dart';
@@ -6,8 +5,8 @@ import 'package:bookly/features/home/presentation/views/widgets/custom_book_imag
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class SimilarBooksListView extends StatelessWidget {
-  const SimilarBooksListView({super.key});
+class RelevanceBooksListView extends StatelessWidget {
+  const RelevanceBooksListView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,10 +19,12 @@ class SimilarBooksListView extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               itemCount: state.books.length,
               itemBuilder: (context, index) {
-                return const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 5),
+                return Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 5),
                   child: CustomBookImage(
-                    imageUrl: Assets.assetsImagesTestImage,
+                    imageUrl:
+                        state.books[index].volumeInfo?.imageLinks?.thumbnail ??
+                            '',
                   ),
                 );
               },
