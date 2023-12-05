@@ -45,7 +45,7 @@ class BooksListViewItem extends StatelessWidget {
                   Opacity(
                     opacity: .7,
                     child: Text(
-                      bookModel.volumeInfo!.authors!.first,
+                      bookModel.volumeInfo?.authors?.first ?? '',
                       style: Styles.textStyle14,
                     ),
                   ),
